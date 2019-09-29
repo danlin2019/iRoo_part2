@@ -1,0 +1,55 @@
+// #section-video
+
+#section-video{
+  background: #2f73c6;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 4% 0 4.8% 0;
+}
+.video-box{
+  position: relative;
+  width: 58.75%;
+  height: 0;
+  padding-bottom: 34.3%;
+  margin-right: 3.2%;
+  iframe{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+  }
+}
+
+.video-txt{
+  width: 35%;
+  h2{
+    font-size: 2.92vw;
+    line-height: 1.5;
+    color: #fbd150;
+    letter-spacing: 2.78px;
+    display: block;
+    margin-bottom: 3%;
+  }
+  p{
+    font-size: 1.305vw;
+    line-height: 2;
+    letter-spacing: 1.25px;
+    color: $white;
+  }
+}
+
+@include screen(768px){
+  #section-video{
+    flex-wrap: wrap;
+  }
+  .video-box{
+    width: 90%;
+    margin: auto;
+    order: 2;
+  }
+  .video-txt{
+    width: 90%;
+    margin: 0 auto 20px auto;
+    order: 1;
+  }
+}

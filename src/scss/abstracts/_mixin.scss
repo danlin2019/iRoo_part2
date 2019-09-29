@@ -1,0 +1,422 @@
+//------------------------- 寬高預設100% -------------------------//
+
+$width: 100%;
+$height: 100%;
+
+//------------------------- media queries -------------------------//
+//先針對media queries的width設為變數
+$breakpoint-tablet: 768px;
+
+$pc-media:1200px;
+$pcs-media:960px;
+$pad-media:768px;
+$pads-media:767px;
+$phone-media:480px;
+
+/*把變數帶入mixin中，此mixin只就單純把media queries寫到mixin中，
+並且使用上面設立的變數來調動media queries的width*/
+
+//電腦
+@mixin pc-width() {
+  @media all and (min-width: $pc-media) {
+        @content;
+     }
+}
+//over
+@mixin over() {
+@media all and (min-width:$pcs-media) and (max-width: $pc-media) {
+            @content;
+      }
+}
+
+
+//平板
+@mixin pad-width() {
+@media all and (min-width:$pad-media) and (max-width: $pcs-media) {
+            @content;
+      }
+}
+//小平板
+ @mixin small-pad-width() {
+    @media all and (min-width: $phone-media) and (max-width:$pads-media) {
+            @content;
+      }
+ }
+//手機
+ @mixin phone-width() {
+    @media all and (max-width: $phones-media) {
+            @content;
+      }
+ }
+
+//media-queries的最大寬度
+@mixin screen($res-max){ 
+  @media screen and ( max-width: $res-max ){ 
+      @content; 
+  } 
+} 
+
+//media-queries的最小寬度
+@mixin screen_min($res-min){ 
+  @media screen and ( min-width: $res-min ){ 
+      @content; 
+  } 
+}
+//media-queries的最小最大寬度
+@mixin screen_and($res-min, $res-max){ 
+  @media screen and ( min-width: $res-min ) and ( max-width: $res-max ){ 
+      @content; 
+  } 
+} 
+
+// @mixin screen_all($res-max)
+//   @media all and (min-width: $res-max) {
+//         @content;
+//      }
+// }
+
+
+//------------------------- animation的keyframes -------------------------//
+
+@mixin keyframes($name){ 
+    @keyframes #{$name} { 
+      @content; 
+    } 
+} 
+
+//------------------------- 所有不支持圓角的瀏覽器使用背景圖片 -------------------------//
+
+@mixin no-border-radius{ 
+  .no-border-radius{ 
+    @content;
+  } 
+}
+
+//------------------------- css3 animation  名子 時間 次數 -------------------------//
+
+@mixin animation($name,$second,$number){
+  animation:$name $second $number;
+  -webkit-animation:$name $second $number;/* Safari 和 Chrome */
+}
+
+//------------------------- css3 animation delay -------------------------//
+
+@mixin an_delay($second){
+    animation-delay:$second;
+    -webkit-animation-delay:$second;
+}
+
+@mixin tr_delay($time){
+      transition-delay: $time;
+      -webkit-transition-delay: $time; /* Safari 和 Chrome */
+}
+
+//------------------------- 行數 -------------------------//
+@mixin line-clamp($num:1){
+  overflow: hidden;
+  display: -webkit-inline-box;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+  vertical-align: middle;
+}
+//------------------------- px轉rem -------------------------//
+
+ @function pxToEm($px, $base: 16) { 
+  @return ($px / $base) * 1rem; 
+}
+
+//------------------------- float -------------------------//
+
+$lte7:true !default;
+@mixin float($float:left) { 
+  float: $float; 
+  @if $lte7 { 
+    display: inline; 
+  } 
+}
+//------------------------- 限定行數  行高 行數(行高x行數)x1rem ---------//
+@mixin clamp($lh,$clamp){
+  height: ($lh*$clamp) * 1em;
+  line-height: $lh;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $clamp; /* 第幾行要顯示點點點 */
+  -webkit-box-orient: vertical;
+}
+//------------------------- placeholder ---------//
+@mixin placeholder {
+  ::-webkit-input-placeholder { @content;}
+  :-moz-placeholder           { @content;}
+  ::-moz-placeholder          { @content;}
+  :-ms-input-placeholder      { @content;}
+}
+// @include placeholder {
+//   @include font-color(pxToEm(16),#a0a0a0);
+// }
+//------------------------- 漸層色 ------------------------- //
+@mixin gradient($direction, $list) { 
+  background: -webkit-linear-gradient($direction, $list);
+  background: -moz-linear-gradient($direction, $list);
+  background: -o-linear-gradient($direction, $list);
+  background: linear-gradient(to $direction, $list);  
+}
+
+// @include gradient(right, $headbg);
+// $headbg: #83df99, #e8c77d, #ec7478;
+//------------------------- inline-block左右空隙用 -------------------------//
+
+@mixin vis(){
+      letter-spacing: -4px;//根據不同字體字號或許需要做一定的調整
+      word-spacing: -4px;
+      font-size: 0;
+}
+@mixin vis_s($fize:20px){
+  font-size: $fize;
+  letter-spacing: normal;
+  word-spacing: normal;
+  display:inline-block;
+  *display: inline;
+  zoom:1;
+}
+
+//------------------------- 浮動置中 -------------------------//
+
+@mixin position($position_x,$position_y,$coordinate_x,$coordinate_y){
+    position: absolute;
+    top: $position_x;
+    left: $position_y;
+    transform:translate($coordinate_x,$coordinate_y);
+}
+
+//------------------------- position 屬性 上 下 左 右-------------------------//
+@mixin polarization($position_name,$top,$bottom,$left,$right){
+  position: $position_name;
+  top: $top;
+  bottom:$bottom;
+  left: $left;
+  right:$right;
+}
+
+
+//------------------------- calc -------------------------//
+
+$wid:'';
+@mixin calc($wid){
+   width: -moz-calc(100% - #{$wid});
+   width: -webkit-calc(100% - #{$wid});
+   width: calc(100% - #{$wid});
+}
+
+//------------------------- select 箭頭改變 -------------------------//
+
+@mixin select($w:100%,$h:27px) {
+  width: $w;
+  height: $h;
+  border: none;
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  background: url("../images/select_arrw.png") no-repeat scroll right center transparent;
+  padding: 0 14px 0 10px;
+  font-size: 36px;
+    /*清除IE的默認選擇框樣式清除，隱藏下拉箭頭*/
+    select::-ms-expand { display: none; }
+    text-align-last: right;
+    padding-right: 44%;
+    direction: rtl;
+    font-family: $mfont;
+
+}
+
+//------------------------- select 文字置中 -------------------------//
+
+@mixin select_centetn($value){
+    text-align-last: right;
+    padding-right: $value;
+    direction: rtl;
+}
+
+//------------------------- menu slideUp Down-------------------------//
+
+@mixin slideUp(){
+    transition: 0.4s;
+    animation-name: slideUp;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-delay: 0s;
+    transform-origin: 50% 50% 0;
+    animation-duration: .5s;
+}
+
+@mixin slideDown(){
+    transition: 0.4s;
+    animation-name: slideDown;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-delay: 0s;
+    transform-origin: 51% 51% 0;
+    animation-duration: .25s;
+}
+
+//------------------------- 區塊寬度設定-------------------------//
+
+@mixin secction_width($width:93%, $max:1200px){
+    width: $width;
+    max-width:$max;
+    margin: 0 auto;
+    @extend %cf;
+}
+
+@mixin tion_width($width:93%, $max:1200px){
+  width: $width;
+  max-width:$max;
+  margin: 0 auto;
+}
+
+//------------------------- 圖片100 -------------------------//
+
+@mixin imgpb($width:100%){
+   text-indent: -10000px;
+    img{
+        width: $width;
+    }
+}
+
+//------------------------- A TAG -------------------------//
+
+@mixin aLink(){
+  width: 100%;
+  height: 100%;
+  display: block;
+} 
+
+//------------------------- inline-block & vertical-align -------------------------//
+
+@mixin disvt($va:top){
+   display: inline-block;
+  vertical-align: $va;
+}
+
+//------------------------- clear float -------------------------//
+
+%cf {
+    zoom: 1;
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+        height: 0;
+        overflow: hidden;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+//------------------------- 垂直至中 -------------------------//
+
+@mixin vertical_td($width:100%,$height:100%){
+    width: $width;
+    height: $height;
+    display: table;
+    vertical-align: middle;
+}
+@mixin vertical_tr(){
+    display: table-cell;
+    vertical-align: middle;
+}
+
+//------------------------- 陰影 -------------------------//
+
+@mixin box-shadow($shadow...){ 
+  -webkit-box-shadow:$shadow; 
+  -moz-box-shadow:$shadow; 
+  box-shadow:$shadow; 
+}
+
+//------------------------- 圓角 -------------------------//
+
+@mixin border($bo:99em){
+    -webkit-border-radius: $bo;
+    -moz-border-radius: $bo;
+    border-radius: $bo;
+}
+//------------------------- 不規則圓角 左上 右上 右下 左下-------------------------//
+@mixin border_show($border_topleft,$border_topright,$bottom_right,$border_bottomleft){
+  
+  -webkit-border-top-left-radius: $border_topleft;
+  -webkit-border-top-right-radius: $border_topright,;
+  -webkit-border-bottom-right-radius: $bottom_right;
+  -webkit-border-bottom-left-radius: $border_bottomleft;
+
+  -moz-border-radius-topleft:$border_topleft;
+  -moz-border-radius-topright: $border_topright,;
+  -moz-border-radius-bottomright: $bottom_right;
+  -moz-border-radius-bottomleft: $border_bottomleft;
+
+  border-top-left-radius:$border_topleft;
+  border-top-right-radius: $border_topright,;
+  border-bottom-right-radius: $bottom_right;
+  border-bottom-left-radius: $border_bottomleft;
+}
+//------------------------- triangle 三角形 方向 尺寸 顏色 -------------------------//
+
+@mixin triangle($direction, $size, $borderColor ) { 
+    content:""; 
+    height: 0;
+    width: 0; 
+    @if $direction == top { 
+      border-bottom:$size solid $borderColor; 
+      border-left:$size dashed transparent; 
+      border-right:$size dashed transparent; 
+    } @else if $direction == right { 
+      border-left:$size solid $borderColor; 
+      border-top:$size dashed transparent; 
+      border-bottom:$size dashed transparent; 
+    } @else if $direction == bottom { 
+      border-top:$size solid $borderColor; 
+      border-left:$size dashed transparent; 
+      border-right:$size dashed transparent; 
+    } @else if $direction == left { 
+      border-right:$size solid $borderColor; 
+      border-top:$size dashed transparent; 
+      border-bottom:$size dashed transparent; 
+    } 
+}
+
+
+@mixin triangle_specially($direction, $height , $width, $borderColor){
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  @if $direction == left_top{ //左上
+      border-width: $height $width 0 0;
+      border-color: $borderColor transparent transparent transparent;
+  }@else if $direction == left_l{ //左
+    border-width: $width $height $width 0;
+    border-color: transparent $borderColor transparent transparent;
+  }@else if  $direction == right_bottom{ //右下
+      border-width: 0 0 $height  $width;
+      border-color: transparent transparent $borderColor transparent;
+  }@else if  $direction == right_r{ //右
+      border-width: $height 0 $height $width;
+      border-color: transparent transparent transparent $borderColor;
+  }
+}
+
+//------------------------- 共用綠色箭頭 -------------------------//
+@mixin arrw_r(){
+    transition: 0.4s;
+    display: inline-block;
+    vertical-align: middle;
+    width: 11px;
+    height: 16px;
+    background: url(../svg/arrw_g.svg);
+    background-size: cover;
+    position: relative;
+    top: -1px;
+    left: 0;
+}
+

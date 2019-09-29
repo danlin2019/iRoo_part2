@@ -1,0 +1,19 @@
+.section-img{
+    a{
+        width: 100%;
+        height: 0;
+        display: block;
+        position: relative;
+    }
+}
+.section-img-photo{
+    transition: .6s;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+}
+
+a:hover .section-img-photo{
+    transform: scale(1.1);  
+}

@@ -1,0 +1,48 @@
+#section-1{
+    position: relative;
+    width: 100%;
+    padding: 5.3% 3.9% 8% 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    background: url(../images/section_1/part1-bg.jpg) no-repeat top left / cover;
+  .title{
+      width: 100%;
+      text-align: center;
+      line-height: 1;
+      margin-bottom: 4.15%;
+      h2,h3{
+          display: inline-block;
+          vertical-align: middle;
+      }
+      h2{
+        font-size: 4vw;  
+        color: #ffdb4a; 
+        letter-spacing: 8px;
+      }
+      h3{
+        font-size: 2.3vw;
+        color: $white;
+        letter-spacing: 5px;
+
+      }
+  }
+
+  .section-img{
+    width: 25.044%;
+    border: 16px solid #fff;
+    overflow: hidden;
+    a{
+        padding-bottom: 129%;
+    }
+    &:nth-child(2){
+         margin-right:0.5%;
+    }
+  }
+}
+
+@include screen(768px){
+  #section-1 .section-img{
+    border: 7px solid #fff;
+  }
+}

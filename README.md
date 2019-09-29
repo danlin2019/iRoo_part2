@@ -1,9 +1,10 @@
 # iRoo_part2
 
 IROO專案
-
-## TODO
 - BANNER輪播
 - 天地維持之前一樣
 - 底下商品輪播也跟之前一樣
 - 購物icon 不要用百分比 寫固定px
+## TODO
+- banner輪播 RWD還沒做
+- banner文字 動態還沒做

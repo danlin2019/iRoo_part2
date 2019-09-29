@@ -1,0 +1,89 @@
+/*----------------------文字設定------------------------*/
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css?20181225);
+
+//選取顏色
+p,h1,h2,h3,h4,b,strong,span,li,div,a,img{
+    &::selection{
+          color:$white;
+          background:#ff42e6;
+        }
+}
+/*----------------------通用設定------------------------*/
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	outline: none;
+	text-decoration: none;
+}
+//phone
+a[x-apple-data-detectors] {
+	color: inherit !important;
+	text-decoration: none !important;
+	font-size: inherit !important;
+	font-family: inherit !important;
+	font-weight: inherit !important;
+	line-height: inherit !important;
+  }
+  
+  a[href^="tel"] {
+	color: inherit; /* Inherit text color of parent element. */
+	text-decoration: none; /* Remove underline. */
+	/* Additional css `propery: value;` pairs here… */
+  }
+
+img{
+    width: 100%;
+}
+
+body {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    line-height: 1em;
+	font-size: 16px;
+	overflow-x: hidden;
+    background: #efedfa;
+	color: #353535;
+	font-size: 16px;
+	line-height: 1.5rem;
+    word-break: break-word;
+    letter-spacing: 0.1em;
+    font-family:$notofont;
+}
+/*----------------------大區塊------------------------*/
+#wrapper {
+    transition: .6s;
+    transition-delay: .3s;
+    opacity: 1;
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    min-width: 320px !important;
+}
+main[role="main"] {
+    display: block;
+	margin: auto;
+    position: relative;
+}
+li{
+	list-style: none;
+}
+
+/*----------------------版本------------------------*/
+.mo_use{
+    display: none;
+}
+
+@include screen(640px){
+    .pc_use{
+        display: none;
+    }
+    .mo_use{
+        display: block;
+    }
+}
