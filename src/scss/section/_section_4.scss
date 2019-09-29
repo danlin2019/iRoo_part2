@@ -40,3 +40,21 @@
        
       }
 }
+@include screen(640px){
+    #section-4{
+        padding-top: 5.9%;
+        .section-4-box{
+            width: 70%;
+        }
+        .title h2{
+            letter-spacing: 1.5px;
+            font-size: 3.7vw;
+            margin-bottom: 3%;
+            font-weight: normal;
+        }
+        .title h3{
+            font-size: 3.2vw;
+        }
+    }
+    
+}

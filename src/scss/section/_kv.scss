@@ -50,9 +50,29 @@
         width: 100%;
         height: 100%;
         display: none;
-        
-        &.active{
-           
-        }
+        background-position: center 10% !important;
+    }
+}
+
+@include screen(768px){
+    #section-kv{
+        height: auto;
+    }
+    .kv-img-box{
+        height: 0;
+        padding-bottom: 51%;
+    }
+}
+
+@include screen(581px){
+    .kv-txt-box{
+        width: 43%;
+        margin: 12.6% 0 0 3.5%;
+    }
+    .kv-txt-1{
+        width: 67%;
+    }
+    .kv-txt-3{
+        width: 55.8%;
     }
 }

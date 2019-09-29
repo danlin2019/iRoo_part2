@@ -37,7 +37,8 @@
         h3{
             font-size: 1.59vw;
             color: #003164;
-            margin-bottom: 17px;          
+            margin-bottom: 17px;        
+            line-height: 1.5;  
         }
         p{
             font-size: 1.15vw;
@@ -71,6 +72,7 @@
 
 @include screen(768px){
     #section-buy{
+        padding: 8.9% 0 12%;
         .slick-slide{
             margin: 0 12px;
         }
@@ -89,4 +91,5 @@
             }
         }
     }
+    
 }
