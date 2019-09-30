@@ -1,0 +1,41 @@
+$heh:85px;
+header{
+  width: 100%;
+  height: $heh;
+  position: relative;
+  background: url(../images/header/header-bg.jpg) no-repeat;
+  background-size: cover;
+  a{
+    height: 100%;
+  }
+}
+.iroo_logo{
+  width: 6.149%;
+  position: absolute;
+  top: 18px;
+  left: 63px;
+}
+
+.lamigo_logo{
+  width: 5.886%;
+  position: absolute;
+  top: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@include screen(1366px){
+  header{
+    height: 55px;
+  }
+  .iroo_logo{
+    width: 80px;
+    top: 9px;
+    left: 15px;
+  }
+  .lamigo_logo{
+    width: 64px;
+    top: 4px;
+    left: 50%;
+  }
+}

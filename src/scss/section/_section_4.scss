@@ -1,0 +1,60 @@
+#section-4{
+    position: relative;
+    width: 100%;
+  
+    padding-top: 7.9%;
+    padding-bottom: 48.9%;
+    background: url(../images/section_4/part4-bg.jpg) no-repeat top left / cover;
+    // display: flex;
+
+    .section-4-box{
+        float: right;
+        width: 67%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .title{
+        color: $white;
+        line-height: 1;
+        margin-bottom: 4.2%;
+        width: 100%;
+        h2{
+            font-size: 2.22vw;
+            letter-spacing: 3.4px;
+            margin-bottom: 2%;
+            font-weight: bold;
+
+        }
+        h3{
+            font-size: 1.45vw;
+        }
+    }
+
+    .section-img{
+        width: 33.333333%;
+        overflow: hidden;
+        a{
+            padding-bottom: 134%;
+        }
+       
+      }
+}
+@include screen(640px){
+    #section-4{
+        padding-top: 5.9%;
+        .section-4-box{
+            width: 70%;
+        }
+        .title h2{
+            letter-spacing: 1.5px;
+            font-size: 3.7vw;
+            margin-bottom: 3%;
+            font-weight: normal;
+        }
+        .title h3{
+            font-size: 3.2vw;
+        }
+    }
+    
+}

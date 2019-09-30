@@ -1,0 +1,95 @@
+#section-buy{
+    width: 100%;
+    padding:4.9% 0 4%;
+    background: url(../images/buy/product-bg.jpg) no-repeat top left / cover;
+    a{
+        height: 100%;
+        &:hover .item_img{
+            transform: scale(1.1);
+        }
+
+    }
+    .item_9_photo{
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 140.145%;
+        overflow: hidden;
+    }
+    .item_img{
+        transition: .7s;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform: scale(1);
+    }
+    .item_slick{
+        width: 69%;
+        max-width: 1366px;
+        margin: auto;
+    }
+    .slick-slide{
+        margin: 0 20px;
+    }
+    .item_txt{
+        margin-top: 35px;
+        text-align: center;
+        h3{
+            font-size: 1.59vw;
+            color: #003164;
+            margin-bottom: 17px;        
+            line-height: 1.5;  
+        }
+        p{
+            font-size: 1.15vw;
+            color: #434343;
+        }
+    }
+    .slick-next, .slick-prev{
+        top: 43%;
+        width: 19px;
+        height: 31px;
+        transition: .4s;
+        background-size: contain;
+        background-repeat: no-repeat;
+        &:hover{
+            background-size: contain;
+        }
+    }
+    .slick-next{
+        background-image: url(../images/buy/chevron-right-solid.svg) ;
+        &:hover{
+            background-image: url(../images/buy/chevron-right-solid_hover.svg);
+        }
+    }
+    .slick-prev{
+        background-image: url(../images/buy/chevron-left-solid.svg);
+        &:hover{
+            background-image: url(../images/buy/chevron-left-solid_hover.svg);
+        }
+    }
+}
+
+@include screen(768px){
+    #section-buy{
+        padding: 8.9% 0 12%;
+        .slick-slide{
+            margin: 0 12px;
+        }
+        .item_slick{
+            width: 80%;
+        }
+        .item_txt{
+            margin-top: 15px;
+            line-height: 1.35rem;
+            h3{
+                font-size: pxToEm(18);
+                margin-bottom: 13px;
+            }
+            p{
+                font-size: pxToEm(15);
+            }
+        }
+    }
+    
+}

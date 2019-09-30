@@ -1,0 +1,15 @@
+footer{
+    width: 100%;
+    text-align: center;
+    background: $black;
+    font-size: 1.3vw;
+    color: $white;
+    padding: 2.4967% 0;
+}
+
+@include screen(768px){
+    footer{
+        font-size: pxToEm(15);
+        padding: 26px 0;
+    }
+}

@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+
+// # Reset/normalize
+@import "base/_reset.scss";
+
+// # themes
+@import "abstracts/_variable.scss";
+@import "abstracts/_mixin.scss";
+
+// # components
+@import "components/_buttom.scss";
+@import "components/_section_img.scss";
+
+// # components
+@import "vendors/slick.scss";
+@import "vendors/slick-theme.scss";
+
+
+// # layout 共用
+@import "layout/_layout.scss";
+@import "layout/_header.scss";
+@import "layout/_footer.scss";
+
+// # pages
+@import "pages/_index.scss"; 
+
+// # section
+@import "section/_kv.scss"; 
+@import "section/_video.scss"; 
+@import "section/_section_1.scss"; 
+@import "section/_section_2.scss"; 
+@import "section/_section_3.scss";
+@import "section/_section_4.scss";  
+@import "section/_section_5.scss";  
+@import "section/_banner.scss";  
+@import "section/_buy.scss";  

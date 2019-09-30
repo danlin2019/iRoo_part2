@@ -1,0 +1,20 @@
+doctype html
+html(lang="zh-tw")
+  head
+    include ../components/head.pug
+  body.init
+    div#wrapper.indexPage
+      include ../components/header.pug
+      main
+        include ../section/kv.pug
+        include ../section/video.pug
+        include ../section/section_1.pug
+        include ../section/section_2.pug
+        include ../section/section_3.pug
+        include ../section/section_4.pug
+        include ../section/section_5.pug
+        include ../section/banner.pug
+        include ../section/buy.pug
+        include ../components/footer.pug
+    script(src='js/vendors.js')
+    script(src='js/index.js')
