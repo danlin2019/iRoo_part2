@@ -8,3 +8,9 @@
       
     }    
 }
+
+@include screen(640px){
+    #section-banner .section-img a {
+        padding-bottom: 34%;
+    }
+}
